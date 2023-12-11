@@ -11,8 +11,8 @@ class Post(models.Model):
         ('publishes','Published')
     )
 
-    title = models.models.CharField(max_length=250)
-    slug =models.SlugField(max_lenght =250, unique_for_date='publish')
+    title = models.CharField(max_length=250)
+    slug =models.SlugField(max_length=250, unique_for_date='publish')
     author = models.ForeignKey(User, on_delete=models.CASCADE,related_name='blog_post')
     body = models.TextField()
     publish = models.DateTimeField(default=timezone.now)
@@ -23,5 +23,6 @@ class Post(models.Model):
                               default='draft')
     class Meta:
         ordering = ('-publish',)
-    def str(self):
-        return self.title
+    def __str__(self):
+        return f"{self.title}"
+    
