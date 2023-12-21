@@ -1,6 +1,8 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
+from taggit.managers import TaggableManager
+
 
 from django.urls import reverse
 
@@ -31,6 +33,7 @@ class Post(models.Model):
     status = models.CharField(max_length=10,
                               choices=STATUS_CHOICES,
                               default='draft')
+    tags = TaggableManager()
 
         
     objects = models.Manager() # The default manager.
@@ -63,3 +66,6 @@ class Comment(models.Model):
         ordering = ('created',)
     def str(self):
         return f'Comment by {self.name} on {self.post}'
+
+
+
