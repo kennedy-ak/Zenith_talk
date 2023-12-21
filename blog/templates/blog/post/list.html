@@ -11,6 +11,7 @@
     <p class="date">
       Published {{ post.publish }} by {{ post.author }}
     </p>
+    <p class="tags"> Tags: {{post.tags.all|join:", "}}</p>
     {{ post.body|truncatewords:15|linebreaks }}
   {% endfor %}
 
