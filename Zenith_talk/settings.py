@@ -33,6 +33,7 @@ SITE_ID = 1
 INSTALLED_APPS = [
      'blog.apps.BlogConfig',
      'taggit',
+     'django.contrib.postgres',
     'django.contrib.admin',
     'django.contrib.sites',
     'django.contrib.sitemaps',
@@ -81,10 +82,15 @@ WSGI_APPLICATION = 'Zenith_talk.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'blog',
+        'USER': 'blog',
+        'PASSWORD': 'akogo',
+        'HOST': 'localhost',  # or '127.0.0.1'
+        'PORT': '5432',
     }
 }
+
 
 
 # Password validation
