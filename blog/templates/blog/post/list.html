@@ -1,11 +1,15 @@
 {% extends "blog/base.html" %}
+{% load static %}
 {% load blog_tags%}
 {% block title %}My Blog{% endblock %}
+<link rel="stylesheet" href="{% static 'blog/div.css'%}">
 {% block content %}
   <h1>My Blog</h1>
-  hello
+
+
   {% for post in posts %}
     <h2>
+      <div class="post">
       <a href="{{ post.get_absolute_url }}">
         {{ post.title }}
       </a>
@@ -15,7 +19,15 @@
     </p>
     <p class="tags"> Tags: {{post.tags.all|join:", "}}</p>
     {{ post.body|markdown |truncatewords_html:15}}
+    <hr size="2">
   {% endfor %}
 
   {% include "blog/pagination.html" with page=posts %}
+
+  <div>
+    
+  </div>
+  
+
+
 {% endblock %}
