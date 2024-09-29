@@ -3,3 +3,4 @@ dj-database-url
 django-taggit
 gunicorn
 psycopg2-binary
+django-markdown
