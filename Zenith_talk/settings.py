@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-
+import dj_database_url
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-t+u%k&)0d$)qf-s&xoirdd!lynkq%tx1a))f9a^2wd7y(#80^e
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 SITE_ID = 1
 # Application definition
@@ -92,7 +92,7 @@ DATABASES = {
 }
 
 
-
+DATABASES['default'] = dj_database_url.parse('postgresql://reflection_user:fsiBjfDHp18gc3tK7AnMO3m1UdCM2cCd@dpg-crskn9ogph6c738ur0qg-a.ohio-postgres.render.com/reflection')
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
@@ -141,3 +141,6 @@ EMAIL_HOST_USER = 'akogokennedy@gmail.com'
 EMAIL_HOST_PASSWORD = 'Akogo660221.'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+
+
+#postgresql://reflection_user:fsiBjfDHp18gc3tK7AnMO3m1UdCM2cCd@dpg-crskn9ogph6c738ur0qg-a.ohio-postgres.render.com/reflection
